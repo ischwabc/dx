@@ -1,0 +1,83 @@
+<style>
+/* 添加您的自定义样式 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff9900;
+    font-size: 24px;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+a {
+    color: #ff9900;
+    text-decoration: none;
+    font-size: 18px;
+    border: 2px solid transparent; /* 添加边框 */
+    padding: 8px 12px; /* 调整内边距 */
+    border-radius: 5px;
+    transition: border-color 0.3s ease; /* 添加过渡效果 */
+}
+
+a:hover {
+    border-color: #ff9900; /* 鼠标悬停时改变边框颜色 */
+    color: #e68a00; /* 鼠标悬停时改变文字颜色 */
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    ul {
+        margin-top: 15px;
+    }
+
+    a {
+        font-size: 16px;
+    }
+}
+</style>
+
+<div class="container">
+    <h1>Select your Country</h1>
+    <ul>
+        <li><a href="/en/">United States</a></li>
+        <li><a href="/fr/">France</a></li>
+        <li><a href="/es/">Spain</a></li>
+        <li><a href="/de/">Germany</a></li>
+        <li><a href="/it/">Italy</a></li>
+    </ul>
+</div>
+
