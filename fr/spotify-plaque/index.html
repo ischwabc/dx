@@ -133,7 +133,7 @@ var themeMenus = {};
                 
                     
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663">
-                            <a class="" href="/en">Home</a>
+                            <a class="" href="/en">Inicio</a>
                         </li>
                     
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663">
@@ -145,7 +145,7 @@ var themeMenus = {};
                         </li>
                     
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663">
-                            <a class="" href="/en/about">About</a>
+                            <a class="" href="/en/about">Acerca de</a>
                         </li>
                     
                 
@@ -241,6 +241,45 @@ var themeMenus = {};
                 li.appendChild(a);
                 document.getElementById('main-nav').appendChild(li);
             
+        } else if (currentPath.startsWith('/gb/')) {
+            document.getElementById('main-nav').innerHTML = '';
+            
+                var li = document.createElement('li');
+                li.className = 'menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663';
+                var a = document.createElement('a');
+                a.className = '';
+                a.href = '/gb';
+                a.textContent = 'Inicio';
+                li.appendChild(a);
+                document.getElementById('main-nav').appendChild(li);
+            
+                var li = document.createElement('li');
+                li.className = 'menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663';
+                var a = document.createElement('a');
+                a.className = '';
+                a.href = '/gb/diamond%20painting';
+                a.textContent = 'diamond painting';
+                li.appendChild(a);
+                document.getElementById('main-nav').appendChild(li);
+            
+                var li = document.createElement('li');
+                li.className = 'menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663';
+                var a = document.createElement('a');
+                a.className = '';
+                a.href = '/gb/plaque';
+                a.textContent = 'plaque';
+                li.appendChild(a);
+                document.getElementById('main-nav').appendChild(li);
+            
+                var li = document.createElement('li');
+                li.className = 'menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-1663';
+                var a = document.createElement('a');
+                a.className = '';
+                a.href = '/gb/about';
+                a.textContent = 'Acerca de';
+                li.appendChild(a);
+                document.getElementById('main-nav').appendChild(li);
+            
         } else if (currentPath.startsWith('/de/')) {
             document.getElementById('main-nav').innerHTML = '';
             
@@ -327,7 +366,7 @@ var themeMenus = {};
                 var a = document.createElement('a');
                 a.className = '';
                 a.href = '/en';
-                a.textContent = 'Home';
+                a.textContent = 'Inicio';
                 li.appendChild(a);
                 document.getElementById('main-nav').appendChild(li);
             
@@ -354,7 +393,7 @@ var themeMenus = {};
                 var a = document.createElement('a');
                 a.className = '';
                 a.href = '/en/about';
-                a.textContent = 'About';
+                a.textContent = 'Acerca de';
                 li.appendChild(a);
                 document.getElementById('main-nav').appendChild(li);
             
@@ -459,7 +498,7 @@ var themeMenus = {};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Connect With Us</h3>
+    <h3 class="widget-title">Conectate con nosotros</h3>
     <div class="widget widget_athemes_social_icons">
 
     	<ul class="clearfix widget-social-icons">   
@@ -500,10 +539,10 @@ var themeMenus = {};
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archivos</h3>
 
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">julio 2023</a></li></ul>
     </div>
   </div>
 
