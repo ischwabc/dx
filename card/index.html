@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting Card Generator</title>
+    <!-- 引入Google字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- 引入Font Awesome图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 引入动画库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- 原有样式保持不变... -->
+    <style>
+        :root {
+            --primary: #2C3639;
+            --secondary: #3F4E4F;
+            --accent: #A27B5C;
+            --light: #F9F5F0;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: var(--light);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            padding: 20px;
+        }
+
+        /* 输入表单样式 */
+        .form-section {
+            flex: 1;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        /* 预览区域样式 */
+        .preview-section {
+            flex: 1;
+            position: relative;
+        }
+
+        .card-preview {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            padding: 40px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .preview-recipient {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .preview-message {
+            font-size: 18px;
+            color: var(--secondary);
+            line-height: 1.6;
+            margin: 20px 0;
+        }
+
+        .preview-sender {
+            font-size: 20px;
+            color: var(--accent);
+            margin-top: 20px;
+        }
+
+        /* 按钮样式 */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .generate-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .download-btn {
+            background: var(--accent);
+            color: white;
+        }
+
+        .random-btn {
+            background: var(--secondary);
+            color: white;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 随机祝福语样式 */
+        .message-suggestions {
+            margin-top: 10px;
+            font-size: 12px;
+            color: var(--secondary);
+        }
+
+        /* 添加卡片背景选项 */
+        .background-selector {
+            margin-top: 20px;
+        }
+
+        .background-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .background-option.active {
+            border-color: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* 添加加载动画 */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading i {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div class="loading" id="loading">
+        <i class="fas fa-spinner fa-spin"></i>
+    </div>
+
+    <div class="container">
+        <!-- 输入表单部分 -->
+        <div class="form-section animate__animated animate__fadeIn">
+            <h2><i class="fas fa-magic"></i> Create Your Card</h2>
+            <div class="form-group">
+                <label><i class="fas fa-user"></i> Recipient's Name</label>
+                <input type="text" id="recipientName" placeholder="Enter recipient's name">
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-heart"></i> Your Message</label>
+                <textarea id="message" placeholder="Enter your message or click 'Random Message'"></textarea>
+                <div class="message-suggestions">
+                    <i class="fas fa-lightbulb"></i> Click 'Random Message' for suggestions
+                </div>
+            </div>
+            <div class="form-group">
+                <label><i class="fas fa-signature"></i> Your Name</label>
+                <input type="text" id="senderName" placeholder="Enter your name">
+            </div>
+            <div class="button-group">
+                <button class="generate-btn" onclick="generateCard()">
+                    <i class="fas fa-wand-magic-sparkles"></i> Generate
+                </button>
+                <button class="random-btn" onclick="getRandomMessage()">
+                    <i class="fas fa-shuffle"></i> Random
+                </button>
+                <button class="download-btn" onclick="downloadCard()">
+                    <i class="fas fa-download"></i> Download
+                </button>
+            </div>
+        </div>
+
+        <!-- 预览部分 -->
+        <div class="preview-section">
+            <div class="card-preview animate__animated animate__fadeIn" id="cardPreview">
+                <div class="preview-recipient" id="previewRecipient">Dear Friend</div>
+                <div class="preview-message" id="previewMessage">Your message will appear here...</div>
+                <div class="preview-sender" id="previewSender">Best wishes</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入必要的JavaScript库 -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script>
+        // 随机祝福语数组
+        const messages = [
+            "Wishing you joy, peace, and happiness today and always.",
+            "May your days be filled with sunshine and your heart with love.",
+            "Here's to new beginnings and beautiful moments ahead.",
+            "Sending you warmest wishes and heartfelt thoughts.",
+            "May each day bring you moments of joy and reasons to smile.",
+            "Wishing you all the best that life has to offer.",
+            "May your journey be blessed with love, light, and laughter.",
+            "Here's to making wonderful memories and cherishing beautiful moments.",
+            "May your dreams take flight and your spirit soar high.",
+            "Sending you positive vibes and happy thoughts."
+        ];
+
+        // 获取随机祝福语
+        function getRandomMessage() {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            document.getElementById('message').value = messages[randomIndex];
+            updatePreview();
+        }
+
+        // 更新预览
+        function updatePreview() {
+            const recipient = document.getElementById('recipientName').value || 'Dear Friend';
+            const message = document.getElementById('message').value || 'Your message will appear here...';
+            const sender = document.getElementById('senderName').value || 'Best wishes';
+
+            document.getElementById('previewRecipient').textContent = 'Dear ' + recipient;
+            document.getElementById('previewMessage').textContent = message;
+            document.getElementById('previewSender').textContent = sender;
+        }
+
+        // 生成卡片
+        function generateCard() {
+            const preview = document.getElementById('cardPreview');
+            preview.classList.remove('animate__fadeIn');
+            void preview.offsetWidth; // 触发重绘
+            preview.classList.add('animate__fadeIn');
+            updatePreview();
+        }
+
+        // 下载卡片
+        async function downloadCard() {
+            const loading = document.getElementById('loading');
+            loading.style.display = 'flex';
+            
+            try {
+                const canvas = await html2canvas(document.getElementById('cardPreview'), {
+                    scale: 2, // 提高导出质量
+                    useCORS: true,
+                    backgroundColor: null
+                });
+                
+                canvas.toBlob(function(blob) {
+                    saveAs(blob, "greeting-card.png");
+                });
+            } catch (error) {
+                console.error('Error generating card:', error);
+                alert('Sorry, there was an error generating your card. Please try again.');
+            } finally {
+                loading.style.display = 'none';
+            }
+        }
+
+        // 输入时实时更新预览
+        document.getElementById('recipientName').addEventListener('input', updatePreview);
+        document.getElementById('message').addEventListener('input', updatePreview);
+        document.getElementById('senderName').addEventListener('input', updatePreview);
+
+        // 错误处理
+        window.onerror = function(msg, url, lineNo, columnNo, error) {
+            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + error);
+            return false;
+        };
+
+        // 确保所有资源加载完成
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
+ 
