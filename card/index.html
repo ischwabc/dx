@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Create beautiful Christmas cards and holiday greetings for your loved ones. Choose from festive themes, add your personal message, and share the joy of the season.">
     <meta name="keywords" content="Christmas card, card generator, free card maker, online card creator, digital cards">
     <title>Christmas Card Generator | DXDOING</title>
@@ -586,6 +586,145 @@
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
+        }
+
+        /* 移动端适配样式 */
+        @media screen and (max-width: 768px) {
+            /* 容器布局调整 */
+            .container {
+                flex-direction: column;
+                padding: 10px;
+                gap: 20px;
+            }
+
+            /* 调整页面标题 */
+            .header h1 {
+                font-size: 1.8em;
+                padding: 0 10px;
+            }
+
+            .header p {
+                font-size: 0.9em;
+                padding: 0 15px;
+            }
+
+            /* 表单部分调整 */
+            .form-section {
+                padding: 15px;
+            }
+
+            /* 主题选择器调整 */
+            .theme-selector {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .theme-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            /* 按钮组调整 */
+            .button-group {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .button-group button {
+                width: calc(50% - 5px);
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            /* 预览区域调整 */
+            .preview-section {
+                min-height: 300px;
+            }
+
+            .card-preview {
+                padding: 20px;
+            }
+
+            .preview-recipient {
+                font-size: 20px;
+            }
+
+            .preview-message {
+                font-size: 16px;
+            }
+
+            .preview-sender {
+                font-size: 18px;
+            }
+
+            /* 分享菜单调整 */
+            .share-menu {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                border-radius: 15px 15px 0 0;
+                padding: 15px;
+                box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            }
+
+            .share-menu a {
+                padding: 12px 16px;
+                font-size: 16px;
+            }
+
+            /* 装饰元素调整 */
+            .theme-christmas::before,
+            .theme-christmas::after,
+            .theme-love::before,
+            .theme-love::after,
+            .theme-birthday::before,
+            .theme-birthday::after {
+                transform: scale(0.7);
+            }
+        }
+
+        /* 针对超小屏幕设备的优化 */
+        @media screen and (max-width: 480px) {
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .button-group button {
+                width: 100%;
+            }
+
+            .preview-recipient {
+                font-size: 18px;
+            }
+
+            .preview-message {
+                font-size: 14px;
+            }
+
+            .preview-sender {
+                font-size: 16px;
+            }
+        }
+
+        /* 优化横屏模式 */
+        @media screen and (max-width: 896px) and (orientation: landscape) {
+            .container {
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .form-section,
+            .preview-section {
+                flex: 1;
+                height: calc(100vh - 150px);
+                overflow-y: auto;
+            }
+
+            .form-section {
+                padding: 10px;
+            }
         }
     </style>
 </head>
