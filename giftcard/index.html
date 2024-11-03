@@ -1,0 +1,337 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DXDoing Gift Card</title>
+    <style>
+        /* 基础样式 */
+        :root {
+            --light: #F9F5F0;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background: var(--light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        .gift-card {
+            width: 168mm;
+            height: 100mm;
+            background: var(--white);
+            position: relative;
+            border-radius: 2px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            display: flex;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .card-half {
+            width: 50%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content-wrapper {
+            width: 70%;
+            text-align: left;
+        }
+
+        /* 封面样式 */
+        .cover {
+            background: linear-gradient(145deg, var(--primary), var(--secondary));
+            color: var(--white);
+            position: relative;
+        }
+
+        .cover::after {
+            content: '';
+            position: absolute;
+            bottom: 40px;
+            left: 15%;
+            width: 40px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        /* 品牌名称样式 */
+        .brand {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: 6px;
+            line-height: 1.2;
+            margin-bottom: 40px;
+        }
+
+        /* 标题样式 */
+        .title {
+            font-size: 32px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--primary);
+            letter-spacing: 2px;
+        }
+
+        /* 副标题样式 */
+        .subtitle {
+            font-size: 16px;
+            font-weight: 300;
+            color: var(--secondary);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            letter-spacing: 1px;
+        }
+
+        /* 链接样式 */
+        .link {
+            font-size: 18px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 400;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        .link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .link:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* 联系方式样式 */
+        .contact {
+            font-size: 14px;
+            color: var(--accent);
+            margin-top: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* 样式选择器 */
+        .style-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .style-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .style-btn.active {
+            background: #2C3639;
+            color: white;
+        }
+
+        /* 打印按钮 */
+        .print-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .print-button:hover {
+            background: var(--accent);
+        }
+
+        @media print {
+            body { margin: 0; padding: 0; }
+            .no-print { display: none; }
+            .gift-card {
+                box-shadow: none !important;
+                border: none !important;
+            }
+            .page-break { page-break-after: always; }
+        }
+
+        /* 10种样式变体 */
+        /* 模板1: 现代简约 */
+        .style-1 {
+            --primary: #2C3639;
+            --secondary: #3F4E4F;
+            --accent: #A27B5C;
+        }
+
+        /* 模板2: 优雅金色 */
+        .style-2 {
+            --primary: #1A1A1A;
+            --secondary: #D4AF37;
+            --accent: #BF9B30;
+        }
+
+        /* 模板3: 极简黑白 */
+        .style-3 {
+            --primary: #000000;
+            --secondary: #333333;
+            --accent: #666666;
+        }
+
+        /* 模板4: 暖色调 */
+        .style-4 {
+            --primary: #8B4513;
+            --secondary: #DEB887;
+            --accent: #CD853F;
+        }
+
+        /* 模板5: 深海蓝 */
+        .style-5 {
+            --primary: #1B262C;
+            --secondary: #0F4C75;
+            --accent: #3282B8;
+        }
+
+        /* 模板6: 森林绿 */
+        .style-6 {
+            --primary: #2D5A27;
+            --secondary: #4A7856;
+            --accent: #78A161;
+        }
+
+        /* 模板7: 紫罗兰 */
+        .style-7 {
+            --primary: #4A154B;
+            --secondary: #9C27B0;
+            --accent: #BA68C8;
+        }
+
+        /* 模板8: 珊瑚色 */
+        .style-8 {
+            --primary: #FF7F50;
+            --secondary: #FF6B6B;
+            --accent: #FFA07A;
+        }
+
+        /* 模板9: 灰调 */
+        .style-9 {
+            --primary: #37474F;
+            --secondary: #546E7A;
+            --accent: #78909C;
+        }
+
+        /* 模板10: 复古风 */
+        .style-10 {
+            --primary: #5D4037;
+            --secondary: #8D6E63;
+            --accent: #A1887F;
+        }
+    </style>
+</head>
+<body class="style-1">
+    <!-- 样式选择器 -->
+    <div class="style-selector no-print">
+        <button class="style-btn active" onclick="changeStyle(1)">Style 1</button>
+        <button class="style-btn" onclick="changeStyle(2)">Style 2</button>
+        <button class="style-btn" onclick="changeStyle(3)">Style 3</button>
+        <button class="style-btn" onclick="changeStyle(4)">Style 4</button>
+        <button class="style-btn" onclick="changeStyle(5)">Style 5</button>
+        <button class="style-btn" onclick="changeStyle(6)">Style 6</button>
+        <button class="style-btn" onclick="changeStyle(7)">Style 7</button>
+        <button class="style-btn" onclick="changeStyle(8)">Style 8</button>
+        <button class="style-btn" onclick="changeStyle(9)">Style 9</button>
+        <button class="style-btn" onclick="changeStyle(10)">Style 10</button>
+    </div>
+
+    <div class="container">
+        <!-- 第一页 (A1 封面 + A4 祝福) -->
+        <div class="gift-card">
+            <div class="card-half cover">
+                <div class="content-wrapper">
+                    <div class="brand">DXDOING</div>
+                </div>
+            </div>
+            <div class="card-half">
+                <div class="content-wrapper">
+                    <div class="title">Welcome</div>
+                    <div class="subtitle">
+                        To a journey of growth and discovery
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 第二页 (A2 感谢 + A3 CTA) -->
+        <div class="gift-card page-break">
+            <div class="card-half">
+                <div class="content-wrapper">
+                    <div class="title">Thank You</div>
+                    <div class="subtitle">We value your trust and support</div>
+                    <div class="contact">help@dxdoing.com</div>
+                </div>
+            </div>
+            <div class="card-half">
+                <div class="content-wrapper">
+                    <div class="subtitle">Explore More At</div>
+                    <a href="https://www.dxdoing.com" class="link">www.dxdoing.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button onclick="window.print()" class="print-button no-print">
+        Print Card
+    </button>
+
+    <script>
+        function changeStyle(styleNumber) {
+            // 移除所有样式类
+            document.body.classList.remove('style-1', 'style-2', 'style-3', 'style-4', 'style-5', 
+                                        'style-6', 'style-7', 'style-8', 'style-9', 'style-10');
+            // 添加选中的样式类
+            document.body.classList.add(`style-${styleNumber}`);
+            
+            // 更新按钮状态
+            document.querySelectorAll('.style-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[onclick="changeStyle(${styleNumber})"]`).classList.add('active');
+        }
+
+        // 初始化默认样式
+        document.addEventListener('DOMContentLoaded', function() {
+            changeStyle(1);
+        });
+    </script>
+</body>
+</html>
+ 
