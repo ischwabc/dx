@@ -538,7 +538,7 @@
             font-weight: 700;
         }
 
-        /* 修改表单区域文字颜色 */
+        /* 修改表区域文字颜色 */
         .form-section label {
             color: #165B33;
             font-weight: 600;
@@ -586,6 +586,170 @@
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
+        }
+
+        /* 在 style 标签中添加以下样式 */
+        .image-upload {
+            margin-bottom: 20px;
+        }
+
+        .preview-image {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 10px auto;
+            display: block;
+            border-radius: 4px;
+        }
+
+        .image-upload-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--primary);
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .image-upload-btn:hover {
+            background: #2d5a3f;
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        .card-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .preview-content {
+            width: 100%;
+            text-align: center;
+        }
+
+        .preview-image-container {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            right: 40px;
+            bottom: 60px;
+            z-index: 1;
+            pointer-events: none; /* 防止图片干扰文字交互 */
+        }
+
+        .heart-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,20 C35,5 0,5 0,35 C0,65 50,90 50,90 C50,90 100,65 100,35 C100,5 65,5 50,20Z' fill='black'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,20 C35,5 0,5 0,35 C0,65 50,90 50,90 C50,90 100,65 100,35 C100,5 65,5 50,20Z' fill='black'/%3E%3C/svg%3E");
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            overflow: hidden;
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-preview {
+            position: relative;
+            background: var(--white);
+            z-index: 0;
+        }
+
+        .preview-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .preview-recipient {
+            position: relative;
+            z-index: 2;
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .preview-message {
+            position: relative;
+            z-index: 2;
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 20px 0;
+            color: var(--secondary);
+        }
+
+        .preview-sender {
+            position: relative;
+            z-index: 2;
+            font-size: 20px;
+            margin-top: 20px;
+            padding-right: 40px;
+            align-self: flex-end;
+            text-align: right;
+            color: var(--accent);
+        }
+
+        .card-preview {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            border: 2px solid var(--secondary);
+        }
+
+        /* 修改心形遮罩的样式 */
+        .heart-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,20 C35,5 0,5 0,35 C0,65 50,90 50,90 C50,90 100,65 100,35 C100,5 65,5 50,20Z' fill='black'/%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50,20 C35,5 0,5 0,35 C0,65 50,90 50,90 C50,90 100,65 100,35 C100,5 65,5 50,20Z' fill='black'/%3E%3C/svg%3E");
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
         }
     </style>
 </head>
@@ -644,6 +808,15 @@
                     </button>
                 </div>
             </div>
+            <div class="form-group">
+                <label><i class="fas fa-image"></i> Add Image</label>
+                <div class="image-upload">
+                    <label for="imageInput" class="image-upload-btn">
+                        <i class="fas fa-upload"></i> Choose Image
+                    </label>
+                    <input type="file" id="imageInput" accept="image/*">
+                </div>
+            </div>
             <div class="button-group">
                 <button class="generate-btn" onclick="generateCard()">
                     <i class="fas fa-wand-magic-sparkles"></i> Generate
@@ -683,7 +856,14 @@
         <div class="preview-section">
             <div class="card-preview animate__animated animate__fadeIn" id="cardPreview">
                 <div class="preview-recipient" id="previewRecipient">Dear Friend</div>
-                <div class="preview-message" id="previewMessage">Your message will appear here...</div>
+                <div class="preview-content">
+                    <div class="preview-image-container">
+                        <div class="heart-mask">
+                            <img id="previewImage" class="preview-image" style="display: none;">
+                        </div>
+                    </div>
+                    <div class="preview-message" id="previewMessage">Your message will appear here...</div>
+                </div>
                 <div class="preview-sender" id="previewSender">Best wishes</div>
                 <div class="watermark">dxdoing.com</div>
             </div>
@@ -700,287 +880,350 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
     <script>
-        // 随机祝福语数组
-        const messages = [
-            "Wishing you joy, peace, and happiness today and always.",
-            "May your days be filled with sunshine and your heart with love.",
-            "Here's to new beginnings and beautiful moments ahead.",
-            "Sending you warmest wishes and heartfelt thoughts.",
-            "May each day bring you moments of joy and reasons to smile.",
-            "Wishing you all the best that life has to offer.",
-            "May your journey be blessed with love, light, and laughter.",
-            "Here's to making wonderful memories and cherishing beautiful moments.",
-            "May your dreams take flight and your spirit soar high.",
-            "Sending you positive vibes and happy thoughts."
-        ];
+        // CardGenerator 类定义
+        class CardGenerator {
+            constructor() {
+                this.canvas = null;
+                this.ctx = null;
+                this.currentTheme = 'christmas';
+                this.imageData = null;
+                
+                // 初始化DOM引用
+                this.elements = {
+                    preview: document.getElementById('cardPreview'),
+                    recipient: document.getElementById('recipientName'),
+                    message: document.getElementById('message'),
+                    sender: document.getElementById('senderName'),
+                    imageInput: document.getElementById('imageInput'),
+                    previewImage: document.getElementById('previewImage')
+                };
 
-        // 获取随机祝福语
-        function getRandomMessage() {
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            document.getElementById('message').value = messages[randomIndex];
-            updatePreview();
-        }
+                // 初始化祝福语数组
+                this.messages = [
+                    "Wishing you a Merry Christmas and a Happy New Year! May your days be filled with joy and laughter.",
+                    "May the magic of Christmas fill your heart with warmth and happiness. Have a wonderful holiday season!",
+                    "Sending you warm wishes and happy thoughts this Christmas season. May all your dreams come true.",
+                    "May your Christmas sparkle with moments of love, laughter and goodwill. Have a wonderful time!",
+                    "Wishing you peace, joy, and all the best this wonderful holiday has to offer. Merry Christmas!",
+                    "May this Christmas season bring you closer to all those that you treasure in your heart.",
+                    "During this special time of year, may you find many reasons to celebrate. Merry Christmas!",
+                    "May the joy and peace of Christmas be with you today and throughout the New Year.",
+                    "Wishing you a season that's merry and bright with the light of God's love.",
+                    "May your world be filled with warmth and good cheer this Holy season."
+                ];
+                
+                this.initializeEventListeners();
+            }
 
-        // 更新预览
-        function updatePreview() {
-            const recipient = document.getElementById('recipientName').value || 'Dear Friend';
-            const message = document.getElementById('message').value || 'Your message will appear here...';
-            const sender = document.getElementById('senderName').value || 'Best wishes';
-
-            document.getElementById('previewRecipient').textContent = 'Dear ' + recipient;
-            document.getElementById('previewMessage').textContent = message;
-            document.getElementById('previewSender').textContent = sender;
-        }
-
-        // 生成卡片
-        function generateCard() {
-            const preview = document.getElementById('cardPreview');
-            preview.classList.remove('animate__fadeIn');
-            void preview.offsetWidth; // 触发重绘
-            preview.classList.add('animate__fadeIn');
-            updatePreview();
-        }
-
-        // 修改下载卡片函数
-        async function downloadCard() {
-            const loading = document.getElementById('loading');
-            loading.style.display = 'flex';
-            
-            try {
-                // 创建临时容器
-                const tempContainer = document.createElement('div');
-                tempContainer.style.position = 'absolute';
-                tempContainer.style.left = '-9999px';
-                tempContainer.style.width = '800px';
-                tempContainer.style.height = '450px';
-                document.body.appendChild(tempContainer);
-
-                // 1. 底层 - 纯白背景
-                const backgroundLayer = document.createElement('div');
-                backgroundLayer.style.position = 'absolute';
-                backgroundLayer.style.top = '0';
-                backgroundLayer.style.left = '0';
-                backgroundLayer.style.width = '100%';
-                backgroundLayer.style.height = '100%';
-                backgroundLayer.style.backgroundColor = '#FFFFFF';
-                backgroundLayer.style.borderRadius = '8px';
-
-                // 2. 中层 - 装饰图案
-                const decorationLayer = document.createElement('div');
-                decorationLayer.style.position = 'absolute';
-                decorationLayer.style.top = '0';
-                decorationLayer.style.left = '0';
-                decorationLayer.style.width = '100%';
-                decorationLayer.style.height = '100%';
-                decorationLayer.style.zIndex = '1';
-                decorationLayer.className = document.getElementById('cardPreview').className;
-
-                // 3. 顶层 - 文字
-                const textLayer = document.createElement('div');
-                textLayer.style.position = 'relative';
-                textLayer.style.width = '100%';
-                textLayer.style.height = '100%';
-                textLayer.style.padding = '40px';
-                textLayer.style.boxSizing = 'border-box';
-                textLayer.style.display = 'flex';
-                textLayer.style.flexDirection = 'column';
-                textLayer.style.justifyContent = 'space-between';
-                textLayer.style.zIndex = '2';
-
-                // 复制并设置文字内容
-                const recipient = document.createElement('div');
-                const message = document.createElement('div');
-                const sender = document.createElement('div');
-
-                // 设置文字样式 - 使用更协调的颜色
-                Object.assign(recipient.style, {
-                    fontSize: '32px',
-                    color: '#2C3639',  // 深色但不是纯黑
-                    fontWeight: '600',
-                    alignSelf: 'flex-start',
-                    textAlign: 'left',
-                    fontFamily: "'Playfair Display', serif"
+            // 初始化事件监听器
+            initializeEventListeners() {
+                ['recipient', 'message', 'sender'].forEach(field => {
+                    this.elements[field].addEventListener('input', () => this.updatePreview());
                 });
-                recipient.textContent = document.getElementById('previewRecipient').textContent;
 
-                Object.assign(message.style, {
-                    fontSize: '24px',
-                    color: '#3F4E4F',  // 中等深度的灰色
-                    fontWeight: '500',
-                    textAlign: 'center',
-                    margin: '20px 0',
-                    lineHeight: '1.6',
-                    fontFamily: "'Roboto', sans-serif"
-                });
-                message.textContent = document.getElementById('previewMessage').textContent;
+                this.elements.imageInput.addEventListener('change', (e) => this.handleImageUpload(e));
+            }
 
-                Object.assign(sender.style, {
-                    fontSize: '28px',
-                    color: '#A27B5C',  // 温暖的强调色
-                    fontWeight: '600',
-                    alignSelf: 'flex-end',
-                    textAlign: 'right',
-                    fontFamily: "'Playfair Display', serif"
-                });
-                sender.textContent = document.getElementById('previewSender').textContent;
+            // 处理图片上传
+            handleImageUpload(event) {
+                const file = event.target.files[0];
+                if (!this.validateImage(file)) return;
 
-                // 添加水印
-                const watermark = document.createElement('div');
-                watermark.style.position = 'absolute';
-                watermark.style.bottom = '10px';
-                watermark.style.right = '10px';
-                watermark.style.fontSize = '12px';
-                watermark.style.color = 'rgba(0,0,0,0.3)';
-                watermark.style.zIndex = '2';
-                watermark.textContent = 'dxdoing.com';
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.imageData = e.target.result;
+                    this.elements.previewImage.src = this.imageData;
+                    this.elements.previewImage.style.display = 'block';
+                    this.elements.previewImage.onload = () => this.updatePreview();
+                };
+                reader.readAsDataURL(file);
+            }
 
-                // 按顺序组装所有层
-                textLayer.appendChild(recipient);
-                textLayer.appendChild(message);
-                textLayer.appendChild(sender);
-                textLayer.appendChild(watermark);
+            // 验证图片
+            validateImage(file) {
+                if (!file) return false;
+                if (file.size > 2 * 1024 * 1024) {
+                    alert('Image size should be less than 2MB');
+                    return false;
+                }
+                if (!file.type.startsWith('image/')) {
+                    alert('Please upload an image file');
+                    return false;
+                }
+                return true;
+            }
 
-                tempContainer.appendChild(backgroundLayer);
-                tempContainer.appendChild(decorationLayer);
-                tempContainer.appendChild(textLayer);
+            // 更新预览
+            updatePreview() {
+                const recipientText = this.elements.recipient.value || 'Dear Friend';
+                const messageText = this.elements.message.value || 'Your message will appear here...';
+                const senderText = this.elements.sender.value || 'Best wishes';
 
-                // 使用html2canvas截图
-                const canvas = await html2canvas(tempContainer, {
-                    scale: 2,
-                    useCORS: true,
-                    backgroundColor: '#FFFFFF',
-                    allowTaint: true,
-                    logging: false,
-                    width: 800,
-                    height: 450,
-                    onclone: (doc) => {
-                        // 确保装饰图案样式被正确复制
-                        const styleSheet = document.createElement('style');
-                        styleSheet.textContent = Array.from(document.styleSheets)
-                            .map(sheet => {
-                                try {
-                                    return Array.from(sheet.cssRules)
-                                        .map(rule => rule.cssText)
-                                        .join('\n');
-                                } catch (e) {
-                                    return '';
-                                }
-                            })
-                            .join('\n');
-                        doc.head.appendChild(styleSheet);
+                this.elements.preview.querySelector('#previewRecipient').textContent = `Dear ${recipientText}`;
+                this.elements.preview.querySelector('#previewMessage').textContent = messageText;
+                this.elements.preview.querySelector('#previewSender').textContent = senderText;
+            }
+
+            // 获取随机消息
+            getRandomMessage() {
+                const randomIndex = Math.floor(Math.random() * this.messages.length);
+                const message = this.messages[randomIndex];
+                this.elements.message.value = message;
+                this.updatePreview();
+            }
+
+            // 设置主题
+            setTheme(theme) {
+                this.currentTheme = theme;
+                this.elements.preview.className = `card-preview animate__animated animate__fadeIn theme-${theme}`;
+                this.updateThemeColors(theme);
+                
+                // 更新按钮状态
+                document.querySelectorAll('.theme-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('onclick').includes(`'${theme}'`)) {
+                        btn.classList.add('active');
                     }
                 });
-
-                // 移除临时容器
-                document.body.removeChild(tempContainer);
-
-                // 保存为PNG
-                canvas.toBlob(function(blob) {
-                    saveAs(blob, "greeting-card.png");
-                }, 'image/png', 1.0);
-
-            } catch (error) {
-                console.error('Error generating card:', error);
-                alert('Sorry, there was an error generating your card. Please try again.');
-            } finally {
-                loading.style.display = 'none';
             }
-        }
 
-        // 输入时实时更新预览
-        document.getElementById('recipientName').addEventListener('input', updatePreview);
-        document.getElementById('message').addEventListener('input', updatePreview);
-        document.getElementById('senderName').addEventListener('input', updatePreview);
+            // 获取主题颜色
+            getThemeColors(theme) {
+                const themes = {
+                    christmas: {
+                        Recipient: '#165B33',
+                        Message: '#c41e3a',
+                        Sender: '#165B33'
+                    },
+                    love: {
+                        Recipient: '#ff69b4',
+                        Message: '#333333',
+                        Sender: '#ff69b4'
+                    },
+                    birthday: {
+                        Recipient: '#FFD700',
+                        Message: '#333333',
+                        Sender: '#FF69B4'
+                    },
+                    congratulations: {
+                        Recipient: '#FFD700',
+                        Message: '#333333',
+                        Sender: '#FFD700'
+                    },
+                    thankyou: {
+                        Recipient: '#FF6B6B',
+                        Message: '#333333',
+                        Sender: '#FF6B6B'
+                    }
+                };
+                return themes[theme] || themes.christmas;
+            }
 
-        // 错误处理
-        window.onerror = function(msg, url, lineNo, columnNo, error) {
-            console.error('Error: ' + msg + '\nURL: ' + url + '\nLine: ' + lineNo + '\nColumn: ' + columnNo + '\nError object: ' + error);
-            return false;
-        };
+            // 更新主题颜色
+            updateThemeColors(theme) {
+                const colors = this.getThemeColors(theme);
+                Object.entries(colors).forEach(([element, color]) => {
+                    const el = this.elements.preview.querySelector(`#preview${element}`);
+                    if (el) el.style.color = color;
+                });
+            }
 
-        // 确保所有资源加载完成
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-        });
+            // 生成卡片
+            async generateCard() {
+                const loading = document.getElementById('loading');
+                loading.style.display = 'flex';
 
-        // 修改主题切换函数
-        function changeTheme(theme) {
-            const preview = document.getElementById('cardPreview');
-            // 移除所有主题类
-            preview.classList.remove('theme-christmas', 'theme-love', 'theme-birthday', 'theme-congratulations', 'theme-thankyou', 'theme-getwellsoon');
-            // 添加选中的主题类
-            preview.classList.add(`theme-${theme}`);
-            
-            // 更新按钮状态
-            document.querySelectorAll('.theme-btn').forEach(btn => {
-                btn.classList.remove('active');
-                // 检查按钮的onclick属性是否包含当前主题
-                if (btn.getAttribute('onclick').includes(`'${theme}'`)) {
-                    btn.classList.add('active');
+                try {
+                    // 创建临时容器
+                    const tempContainer = document.createElement('div');
+                    tempContainer.style.cssText = `
+                        position: fixed;
+                        left: -9999px;
+                        width: 800px;
+                        height: 450px;
+                        background: white;
+                        padding: 40px;
+                        box-sizing: border-box;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        border-radius: 8px;
+                        border: 2px solid ${this.getThemeColors(this.currentTheme).Message};
+                    `;
+                    document.body.appendChild(tempContainer);
+
+                    // 1. 添加主题装饰
+                    if (this.currentTheme === 'christmas') {
+                        const decorations = document.createElement('div');
+                        decorations.innerHTML = `
+                            <div style="
+                                position: absolute;
+                                top: 20px;
+                                left: 20px;
+                                width: 100px;
+                                height: 100px;
+                                background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Cpath d=%22M50,10 L55,25 L70,25 L60,35 L65,50 L50,40 L35,50 L40,35 L30,25 L45,25 L50,10z M50,45 L50,90 M35,60 L65,60 M30,75 L70,75%22 stroke=%22%23c41e3a%22 stroke-width=%223%22 fill=%22%23165B33%22 opacity=%220.3%22/%3E%3C/svg%3E');
+                                opacity: 0.3;
+                                z-index: 1;
+                            "></div>
+                            <div style="
+                                position: absolute;
+                                bottom: 20px;
+                                right: 20px;
+                                width: 80px;
+                                height: 80px;
+                                background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Cpath d=%22M40,10 C45,10 50,15 50,20 C50,15 55,10 60,10 C70,10 75,20 70,30 C65,40 40,60 40,60 C40,60 15,40 10,30 C5,20 10,10 20,10 C25,10 30,15 30,20 C30,15 35,10 40,10z%22 fill=%22%23c41e3a%22 opacity=%220.3%22/%3E%3C/svg%3E');
+                                opacity: 0.3;
+                                z-index: 1;
+                            "></div>
+                        `;
+                        tempContainer.appendChild(decorations);
+                    }
+
+                    // 2. 添加图片（如果有）
+                    if (this.imageData) {
+                        const imageContainer = document.createElement('div');
+                        imageContainer.style.cssText = `
+                            position: absolute;
+                            width: 150px;
+                            height: 150px;
+                            right: 40px;
+                            bottom: 60px;
+                            z-index: 1;
+                        `;
+
+                        const heartSvg = `
+                            <svg width="150" height="150" viewBox="0 0 150 150">
+                                <defs>
+                                    <clipPath id="heartClip">
+                                        <path d="M75,20 C60,5 25,5 25,35 C25,65 75,90 75,90 C75,90 125,65 125,35 C125,5 90,5 75,20Z" />
+                                    </clipPath>
+                                </defs>
+                                <image
+                                    x="0"
+                                    y="0"
+                                    width="150"
+                                    height="150"
+                                    href="${this.imageData}"
+                                    clip-path="url(#heartClip)"
+                                    preserveAspectRatio="xMidYMid slice"
+                                />
+                            </svg>
+                        `;
+
+                        imageContainer.innerHTML = heartSvg;
+                        tempContainer.appendChild(imageContainer);
+
+                        // 等待图片加载
+                        await new Promise((resolve) => {
+                            const img = new Image();
+                            img.onload = resolve;
+                            img.src = this.imageData;
+                        });
+                    }
+
+                    // 3. 添加文字内容
+                    const colors = this.getThemeColors(this.currentTheme);
+                    const textContainer = document.createElement('div');
+                    textContainer.style.cssText = `
+                        position: relative;
+                        width: 100%;
+                        height: 100%;
+                        z-index: 2;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                    `;
+
+                    const recipientText = this.elements.preview.querySelector('#previewRecipient').textContent;
+                    const messageText = this.elements.preview.querySelector('#previewMessage').textContent;
+                    const senderText = this.elements.preview.querySelector('#previewSender').textContent;
+
+                    textContainer.innerHTML = `
+                        <div style="
+                            font-size: 24px;
+                            color: ${colors.Recipient};
+                            margin-bottom: 20px;
+                            font-weight: 700;
+                            font-family: 'Playfair Display', serif;
+                        ">${recipientText}</div>
+                        <div style="
+                            font-size: 18px;
+                            line-height: 1.6;
+                            text-align: center;
+                            color: ${colors.Message};
+                            font-weight: 600;
+                            font-family: 'Roboto', sans-serif;
+                        ">${messageText}</div>
+                        <div style="
+                            font-size: 20px;
+                            align-self: flex-end;
+                            color: ${colors.Sender};
+                            margin-top: 20px;
+                            font-weight: 700;
+                            font-family: 'Playfair Display', serif;
+                        ">${senderText}</div>
+                    `;
+
+                    tempContainer.appendChild(textContainer);
+
+                    // 4. 添加水印
+                    const watermark = document.createElement('div');
+                    watermark.style.cssText = `
+                        position: absolute;
+                        bottom: 10px;
+                        right: 10px;
+                        font-size: 12px;
+                        color: rgba(0,0,0,0.3);
+                        z-index: 3;
+                        font-family: Arial, sans-serif;
+                    `;
+                    watermark.textContent = 'dxdoing.com';
+                    tempContainer.appendChild(watermark);
+
+                    // 使用html2canvas
+                    const canvas = await html2canvas(tempContainer, {
+                        scale: 2,
+                        useCORS: true,
+                        allowTaint: true,
+                        backgroundColor: '#FFFFFF',
+                        logging: false,
+                        onclone: function(clonedDoc) {
+                            const clonedContainer = clonedDoc.querySelector('div');
+                            if (clonedContainer) {
+                                // 确保SVG和图片正确渲染
+                                const svgElement = clonedContainer.querySelector('svg');
+                                if (svgElement) {
+                                    svgElement.style.width = '150px';
+                                    svgElement.style.height = '150px';
+                                }
+                            }
+                        }
+                    });
+
+                    // 移除临时容器
+                    document.body.removeChild(tempContainer);
+
+                    // 下载图片
+                    canvas.toBlob(blob => {
+                        saveAs(blob, 'greeting-card.png');
+                    }, 'image/png', 1.0);
+
+                } catch (error) {
+                    console.error('Error generating card:', error);
+                    alert('Error generating card. Please try again.');
+                } finally {
+                    loading.style.display = 'none';
                 }
-            });
-
-            // 根据主题更新文字颜色
-            const recipient = document.getElementById('previewRecipient');
-            const message = document.getElementById('previewMessage');
-            const sender = document.getElementById('previewSender');
-
-            switch(theme) {
-                case 'christmas':
-                    recipient.style.color = '#165B33';  // 深绿色
-                    message.style.color = '#c41e3a';    // 圣诞红
-                    sender.style.color = '#165B33';     // 深绿色
-                    break;
-                case 'love':
-                    recipient.style.color = '#ff69b4';  // 粉红色
-                    message.style.color = '#333333';    // 深灰色
-                    sender.style.color = '#ff69b4';     // 粉红色
-                    break;
-                case 'birthday':
-                    recipient.style.color = '#FFD700';  // 金色
-                    message.style.color = '#333333';    // 深灰色
-                    sender.style.color = '#FF69B4';     // 粉红色
-                    break;
-                case 'congratulations':
-                    recipient.style.color = '#FFD700';  // 金色
-                    message.style.color = '#333333';    // 深灰色
-                    sender.style.color = '#FFD700';     // 金色
-                    break;
-                case 'thankyou':
-                    recipient.style.color = '#FF6B6B';  // 珊瑚红
-                    message.style.color = '#333333';    // 深灰色
-                    sender.style.color = '#FF6B6B';     // 珊瑚红
-                    break;
-                case 'getwellsoon':
-                    recipient.style.color = '#92D6B3';  // 薄荷绿
-                    message.style.color = '#333333';    // 深灰色
-                    sender.style.color = '#92D6B3';     // 薄荷绿
-                    break;
-                default:
-                    recipient.style.color = '#333333';  // 默认深灰色
-                    message.style.color = '#333333';
-                    sender.style.color = '#333333';
             }
         }
 
-        // 修改初始化代码
-        document.addEventListener('DOMContentLoaded', function() {
-            // 设置默认主题为圣诞节
-            changeTheme('christmas');
-            // 激活对应的按钮
-            const christmasBtn = document.querySelector('[onclick="changeTheme(\'christmas\')"]');
-            if (christmasBtn) {
-                christmasBtn.classList.add('active');
-            }
-        });
-
-        // 添加分享功能相关的JavaScript
+        // 分享功能
         function toggleShareMenu() {
             const menu = document.getElementById('shareMenu');
             menu.classList.toggle('active');
         }
 
-        // 点击其他地方关闭分享菜单
         document.addEventListener('click', function(event) {
             const shareMenu = document.getElementById('shareMenu');
             const shareBtn = event.target.closest('.share-btn');
@@ -994,7 +1237,6 @@
             const title = encodeURIComponent('Create your own greeting card with DXDOING Card Generator!');
             
             let shareUrl = '';
-            
             switch(platform) {
                 case 'facebook':
                     shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
@@ -1016,6 +1258,30 @@
             if (shareUrl) {
                 window.open(shareUrl, '_blank', 'width=600,height=400');
             }
+        }
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', () => {
+            const cardGenerator = new CardGenerator();
+            window.cardGenerator = cardGenerator;
+            cardGenerator.setTheme('christmas');
+        });
+
+        // 全局桥接函数
+        function generateCard() {
+            window.cardGenerator.generateCard();
+        }
+
+        function changeTheme(theme) {
+            window.cardGenerator.setTheme(theme);
+        }
+
+        function getRandomMessage() {
+            window.cardGenerator.getRandomMessage();
+        }
+
+        function downloadCard() {
+            window.cardGenerator.generateCard();
         }
     </script>
     <script>

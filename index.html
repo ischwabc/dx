@@ -280,6 +280,21 @@ h1::after {
     75% { border-color: #ff69b4; }
     100% { border-color: #ff0000; }
 }
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(196, 30, 58, 0.4);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
+    }
+}
 </style>
 
 <script>
@@ -331,6 +346,24 @@ setInterval(updateRandomColors, 2000);
         <span style="font-size: 18px;">
             Joyeux Noël • Frohe Weihnachten • Feliz Navidad • Buon Natale
         </span>
+    </div>
+    
+    <div style="text-align: center; margin-bottom: 40px;">
+        <a href="/card/" style="
+            display: inline-block;
+            padding: 15px 30px;
+            background: #c41e3a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(196, 30, 58, 0.2);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        ">
+            <i class="fas fa-gift"></i> Create Your Own Card Free
+        </a>
     </div>
     
     <div class="country-selector">
