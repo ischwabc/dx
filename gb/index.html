@@ -1,11 +1,12 @@
-
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
+
 <style>
 /* 更新圣诞节主题样式 */
 :root {
@@ -191,6 +192,12 @@
     color: var(--christmas-green);
 }
 
+.coupon-button {
+    background: #f8f9fa;
+    color: #2c3e50;
+    border: 1px solid #dee2e6;
+}
+
 .trust-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -204,6 +211,46 @@
     text-align: center;
 }
 
+.trust-item .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section {
+    text-align: center;
+    padding: 4rem 1rem;
+    background: var(--pine-dark);
+    color: var(--snow-white);
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--christmas-green);
+    color: var(--snow-white);
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+    border: 2px solid var(--christmas-green);
+    transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+    background: transparent;
+    color: var(--snow-white);
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
+
+/* 添加满意度保证部分的样式 */
 .satisfaction-guarantee {
     background: linear-gradient(rgba(255,255,255,0.97), rgba(255,255,255,0.97)),
                 url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMiIgZmlsbD0iI0Y0QzQzMCIgZmlsbC1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+');
@@ -310,99 +357,65 @@
     margin-top: 1rem;
     font-style: italic;
 }
-
-.contact-section {
-    text-align: center;
-    padding: 4rem 1rem;
-    background: var(--pine-dark);
-    color: var(--snow-white);
-}
-
-.contact-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background: var(--christmas-green);
-    color: var(--snow-white);
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 1rem;
-    border: 2px solid var(--christmas-green);
-    transition: all 0.3s ease;
-}
-
-.contact-button:hover {
-    background: transparent;
-    color: var(--snow-white);
-}
-
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .button-group {
-        flex-direction: column;
-    }
-}
 </style>
 
 <div class="christmas-header">
-    <h1>🎄 Servizio Post-Vendita DXDOING 2024 🎁</h1>
-    <p class="subtitle">Assistenza Clienti Professionale per i Tuoi Prodotti Personalizzati</p>
+    <h1>🎄 DXDOING After-Sales Service 2024 🎁</h1>
+    <p class="subtitle">Professional Customer Support for Your Bespoke Products</p>
 </div>
 
 <div class="promo-banner">
-    <span class="highlight">🌟 Centro Assistenza Clienti DXDOING</span>
-    <a href="https://m.me/102799235259009" class="cta-button">Contatta Assistenza</a>
+    <span class="highlight">🌟 DXDOING Customer Care Centre</span>
+    <a href="https://m.me/102799235259009" class="cta-button">Contact Support</a>
 </div>
 
 <div class="product-grid">
     <div class="product-card">
         <div class="product-image">
-            <a href="https://www.amazon.it/Palla-Natale-Personalizzata-Decorazioni-Originali/dp/B0DHXZ3QZ5">
-                <img src="https://m.media-amazon.com/images/I/71jmbtdaPfL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Palla di Natale Personalizzata">
+            <a href="https://www.amazon.co.uk/Personalised-Christmas-Bauble-Original-Decorations/dp/B0DHXZ3QZ5">
+                <img src="https://m.media-amazon.com/images/I/71jmbtdaPfL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Personalised Christmas Bauble">
             </a>
-            <span class="bestseller">Più Venduto</span>
+            <span class="bestseller">Bestseller</span>
         </div>
         <div class="product-info">
-            <h2>Palla di Natale Personalizzata con Foto</h2>
-            <p class="description">Decorazioni originali per il tuo albero di Natale con supporto tecnico incluso.</p>
+            <h2>Personalised Photo Christmas Bauble</h2>
+            <p class="description">Bespoke decorations for your Christmas tree with included technical support.</p>
             <div class="button-group">
-                <a href="https://www.amazon.it/Palla-Natale-Personalizzata-Decorazioni-Originali/dp/B0DHXZ3QZ5" class="buy-button">Acquista su Amazon</a>
-                <a href="https://m.me/102799235259009" class="support-button">Assistenza Clienti</a>
+                <a href="https://www.amazon.co.uk/Personalised-Christmas-Bauble-Original-Decorations/dp/B0DHXZ3QZ5" class="buy-button">Shop on Amazon</a>
+                <a href="https://m.me/102799235259009" class="support-button">Customer Care</a>
             </div>
         </div>
     </div>
 
     <div class="product-card">
         <div class="product-image">
-            <a href="https://www.amazon.it/DXDOING-Personalizzata-Coperta-Personalizzato-Innamorati/dp/B0DC3YJBHP">
-                <img src="https://m.media-amazon.com/images/I/71itZJE8n4L._AC_SL1500_.jpg" alt="Coperta Personalizzata">
+            <a href="https://www.amazon.co.uk/DXDOING-Personalised-Blanket-Custom-Lovers/dp/B0DC3YJBHP">
+                <img src="https://m.media-amazon.com/images/I/71itZJE8n4L._AC_SL1500_.jpg" alt="Personalised Throw">
             </a>
         </div>
         <div class="product-info">
-            <h2>Coperta Personalizzata con Foto</h2>
-            <p class="description">Coperta morbida e calda con servizio post-vendita premium.</p>
+            <h2>Personalised Photo Throw</h2>
+            <p class="description">Cosy and warm throw with premium after-sales service.</p>
             <div class="button-group">
-                <a href="https://www.amazon.it/DXDOING-Personalizzata-Coperta-Personalizzato-Innamorati/dp/B0DC3YJBHP" class="buy-button">Acquista su Amazon</a>
-                <a href="https://m.me/102799235259010" class="support-button">Assistenza Clienti</a>
+                <a href="https://www.amazon.co.uk/DXDOING-Personalised-Blanket-Custom-Lovers/dp/B0DC3YJBHP" class="buy-button">Shop on Amazon</a>
+                <a href="https://m.me/102799235259010" class="support-button">Customer Care</a>
             </div>
         </div>
     </div>
 
     <div class="product-card">
         <div class="product-image">
-            <a href="https://www.amazon.it/DXDOING-Personalizzata-Compleanno-San-Valentino/dp/B0DHSD9M92">
-                <img src="https://m.media-amazon.com/images/I/71GJhB07yIL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Coperta Regalo">
+            <a href="https://www.amazon.co.uk/DXDOING-Personalised-Birthday-Valentine-Christmas/dp/B0DHSD9M92">
+                <img src="https://m.media-amazon.com/images/I/71GJhB07yIL.__AC_SX300_SY300_QL70_ML2_.jpg" alt="Gift Blanket">
             </a>
-            <span class="new-arrival">Novità</span>
+            <span class="new-arrival">New In</span>
         </div>
         <div class="product-info">
-            <h2>Coperta Regalo Personalizzata</h2>
-            <p class="description">Il regalo perfetto con garanzia e supporto tecnico incluso.</p>
+            <h2>Personalised Gift Blanket</h2>
+            <p class="description">The perfect gift with warranty and technical support included.</p>
             <div class="button-group">
-                <a href="https://www.amazon.it/DXDOING-Personalizzata-Compleanno-San-Valentino/dp/B0DHSD9M92" class="buy-button">Acquista su Amazon</a>
-                <a href="https://m.me/102799235259011" class="support-button">Assistenza Clienti</a>
+                <a href="https://www.amazon.co.uk/DXDOING-Personalised-Birthday-Valentine-Christmas/dp/B0DHSD9M92" class="buy-button">Shop on Amazon</a>
+                <a href="https://m.me/102799235259011" class="support-button">Customer Care</a>
             </div>
         </div>
     </div>
@@ -411,44 +424,47 @@
 <div class="trust-section">
     <div class="trust-item">
         <span class="icon">💬</span>
-        <h3>Supporto 24/7</h3>
-        <p>Assistenza Rapida e Professionale</p>
+        <h3>24/7 Support</h3>
+        <p>Swift and Professional Assistance</p>
     </div>
     <div class="trust-item">
         <span class="icon">🛠️</span>
-        <h3>Servizio Tecnico</h3>
-        <p>Consulenza Esperta sull'Utilizzo</p>
+        <h3>Technical Service</h3>
+        <p>Expert Usage Guidance</p>
     </div>
     <div class="trust-item">
         <span class="icon">✨</span>
-        <h3>Garanzia Prodotto</h3>
-        <p>Supporto a Vita</p>
+        <h3>Product Warranty</h3>
+        <p>Lifetime Support</p>
     </div>
 </div>
 
 <div class="satisfaction-guarantee">
     <div class="guarantee-content">
         <span class="guarantee-icon">🤝</span>
-        <h2>Centro Assistenza Clienti</h2>
-        <p class="guarantee-text">Il nostro team è qui per aiutarti con il tuo prodotto DXDOING:</p>
+        <h2>Customer Care Centre</h2>
+        <p class="guarantee-text">Our team is here to assist you with your DXDOING product:</p>
         <ul class="guarantee-list">
-            <li>✓ Assistenza tecnica dedicata</li>
-            <li>✓ Istruzioni di cura personalizzate</li>
-            <li>✓ Supporto garanzia prodotto</li>
-            <li>✓ Risoluzione rapida dei problemi</li>
+            <li>✓ Dedicated technical assistance</li>
+            <li>✓ Bespoke care instructions</li>
+            <li>✓ Product warranty support</li>
+            <li>✓ Swift problem resolution</li>
         </ul>
         <div class="guarantee-contact">
-            <p class="urgent-contact">Hai bisogno di aiuto con il tuo prodotto?</p>
-            <a href="mailto:support@dxdoing.com" class="urgent-button">Supporto Prioritario</a>
-            <p class="guarantee-note">Risposta garantita entro 24 ore</p>
+            <p class="urgent-contact">Need help with your product?</p>
+            <a href="mailto:support@dxdoing.com" class="urgent-button">Priority Support</a>
+            <p class="guarantee-note">Guaranteed response within 24 hours</p>
         </div>
     </div>
 </div>
 
 <div class="contact-section">
-    <h2>Hai Bisogno di Aiuto?</h2>
-    <p>Il nostro team è a tua disposizione per qualsiasi domanda</p>
-    <a href="mailto:help@dxdoing.com" class="contact-button">Contattaci</a>
+    <h2>Need Assistance?</h2>
+    <p>Our team is at your service for any enquiries</p>
+    <a href="mailto:help@dxdoing.com" class="contact-button">Contact Us</a>
 </div>
+
+
+
 </body>
 </html>

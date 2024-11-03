@@ -1,83 +1,406 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merry Christmas - Joyeux Noël - Frohe Weihnachten</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
 <style>
-/* 添加您的自定义样式 */
+@keyframes snowfall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) translateX(100px) rotate(360deg);
+    }
+}
+
+.snowflake {
+    position: fixed;
+    color: #fff;
+    font-size: 1em;
+    text-shadow: 0 0 5px rgba(255,255,255,0.8);
+    animation: snowfall linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    background: linear-gradient(135deg, #1a472a 0%, #2d5a3f 100%);
     margin: 0;
     padding: 0;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .container {
-    max-width: 90%;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-out;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.welcome-icon {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 48px;
+    color: #c41e3a;
+}
+
+.country-selector {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+    animation: slideUp 0.8s ease-out;
+    border: 2px solid #c41e3a;
 }
 
 h1 {
-    color: #ff9900;
-    font-size: 24px;
+    color: #c41e3a;
+    font-size: 28px;
+    font-weight: 500;
     text-align: center;
+    margin-bottom: 35px;
+    position: relative;
 }
 
-ul {
-    list-style-type: none;
+h1::after {
+    content: '🎄';
+    display: block;
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+.country-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
     padding: 0;
-    margin-top: 20px;
+    margin: 0;
+    list-style: none;
 }
 
-li {
-    margin-bottom: 10px;
+.country-item {
+    transform: translateY(0);
+    transition: all 0.3s ease;
+}
+
+.country-item:hover {
+    transform: translateY(-3px);
+}
+
+.country-link {
     display: flex;
     align-items: center;
-}
-
-a {
-    color: #ff9900;
+    padding: 20px;
+    color: #1a472a;
     text-decoration: none;
-    font-size: 18px;
-    border: 2px solid transparent; /* 添加边框 */
-    padding: 8px 12px; /* 调整内边距 */
-    border-radius: 5px;
-    transition: border-color 0.3s ease; /* 添加过渡效果 */
+    font-size: 16px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 2px solid #c41e3a;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-a:hover {
-    border-color: #ff9900; /* 鼠标悬停时改变边框颜色 */
-    color: #e68a00; /* 鼠标悬停时改变文字颜色 */
+.country-link:hover {
+    background: #fff5f5;
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.15);
+    border-color: #c41e3a;
+}
+
+.country-flag {
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-text {
+    text-align: center;
+    color: #1a472a;
+    margin: 20px 0 40px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.christmas-decoration {
+    position: absolute;
+    font-size: 24px;
+    animation: swing 2s ease-in-out infinite;
+}
+
+.decoration-1 { top: 20px; left: 10%; content: '🎅'; }
+.decoration-2 { top: 40px; right: 15%; content: '🎄'; }
+.decoration-3 { bottom: 30px; left: 20%; content: '🎁'; }
+.decoration-4 { bottom: 50px; right: 25%; content: '⛄'; }
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media only screen and (max-width: 600px) {
     .container {
-        padding: 10px;
-        border-radius: 0;
-        box-shadow: none;
+        padding: 20px 15px;
+    }
+
+    .country-grid {
+        grid-template-columns: 1fr;
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 24px;
     }
+    
+    .logo {
+        font-size: 28px;
+    }
+}
 
-    ul {
-        margin-top: 15px;
-    }
+.christmas-lights {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, 
+        #ff0000 0%, #ff0000 10%,
+        #00ff00 10%, #00ff00 20%,
+        #0000ff 20%, #0000ff 30%,
+        #ffff00 30%, #ffff00 40%,
+        #ff00ff 40%, #ff00ff 50%,
+        #00ffff 50%, #00ffff 60%,
+        #ff0000 60%, #ff0000 70%,
+        #00ff00 70%, #00ff00 80%,
+        #0000ff 80%, #0000ff 90%,
+        #ffff00 90%, #ffff00 100%
+    );
+    animation: christmas-lights 2s linear infinite;
+    z-index: 1000;
+}
 
-    a {
-        font-size: 16px;
-    }
+@keyframes christmas-lights {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.christmas-message {
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% { color: #ff0000; }
+    25% { color: #00ff00; }
+    50% { color: #ffff00; }
+    75% { color: #ff69b4; }
+    100% { color: #ff0000; }
+}
+
+.country-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    20% { left: 100%; }
+    100% { left: 100%; }
+}
+
+.festive-border {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid;
+    animation: borderColor 5s infinite;
+    pointer-events: none;
+    border-radius: 12px;
+}
+
+@keyframes borderColor {
+    0% { border-color: #ff0000; }
+    25% { border-color: #00ff00; }
+    50% { border-color: #ffff00; }
+    75% { border-color: #ff69b4; }
+    100% { border-color: #ff0000; }
 }
 </style>
 
+<script>
+function createSnowflakes() {
+    const snowflakes = ['❄', '❅', '❆'];
+    for(let i = 0; i < 50; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.className = 'snowflake';
+        snowflake.style.left = Math.random() * 100 + 'vw';
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + 's';
+        snowflake.style.opacity = Math.random();
+        snowflake.innerHTML = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+        document.body.appendChild(snowflake);
+    }
+}
+window.onload = createSnowflakes;
+
+// 添加随机颜色变换效果
+function getRandomColor() {
+    const colors = ['#ff0000', '#00ff00', '#ffff00', '#ff69b4', '#00ffff', '#ff1493'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function updateRandomColors() {
+    const borders = document.querySelectorAll('.festive-border');
+    borders.forEach(border => {
+        border.style.borderColor = getRandomColor();
+    });
+}
+
+setInterval(updateRandomColors, 2000);
+</script>
+
+<div class="christmas-decoration decoration-1">🎅</div>
+<div class="christmas-decoration decoration-2">🎄</div>
+<div class="christmas-decoration decoration-3">🎁</div>
+<div class="christmas-decoration decoration-4">⛄</div>
+
+<div class="christmas-lights"></div>
+
 <div class="container">
-    <h1>Select your Country</h1>
-    <ul>
-        <li><a href="/en/">United States</a></li>
-        <li><a href="/fr/">France</a></li>
-        <li><a href="/es/">Spain</a></li>
-        <li><a href="/de/">Germany</a></li>
-        <li><a href="/it/">Italy</a></li>
-    </ul>
+    <div class="logo">
+        DXDOING
+    </div>
+    
+    <div class="christmas-message">
+        🎄 Merry Christmas & Happy New Year! 🎅
+        <br>
+        <span style="font-size: 18px;">
+            Joyeux Noël • Frohe Weihnachten • Feliz Navidad • Buon Natale
+        </span>
+    </div>
+    
+    <div class="country-selector">
+        <div class="welcome-icon">
+            <i class="fas fa-holly-berry"></i>
+        </div>
+        
+        <div class="welcome-text">
+            🎄 Welcome to Our Global Christmas Celebration 🎄
+        </div>
+        
+        <ul class="country-grid">
+            <li class="country-item">
+                <a href="/en/" class="country-link">
+                    <div class="festive-border"></div>
+                    <img src="https://flagcdn.com/24x18/us.png" alt="US flag" class="country-flag">
+                    <div>
+                        <span>United States</span>
+                    </div>
+                </a>
+            </li>
+            <li class="country-item">
+                <a href="/fr/" class="country-link">
+                    <div class="festive-border"></div>
+                    <img src="https://flagcdn.com/24x18/fr.png" alt="France flag" class="country-flag">
+                    <div>
+                        <span>France</span>
+                    </div>
+                </a>
+            </li>
+            <li class="country-item">
+                <a href="/es/" class="country-link">
+                    <div class="festive-border"></div>
+                    <img src="https://flagcdn.com/24x18/es.png" alt="Spain flag" class="country-flag">
+                    <div>
+                        <span>España</span>
+                    </div>
+                </a>
+            </li>
+            <li class="country-item">
+                <a href="/de/" class="country-link">
+                    <div class="festive-border"></div>
+                    <img src="https://flagcdn.com/24x18/de.png" alt="Germany flag" class="country-flag">
+                    <div>
+                        <span>Deutschland</span>
+                    </div>
+                </a>
+            </li>
+            <li class="country-item">
+                <a href="/it/" class="country-link">
+                    <div class="festive-border"></div>
+                    <img src="https://flagcdn.com/24x18/it.png" alt="Italy flag" class="country-flag">
+                    <div>
+                        <span>Italia</span>
+                    </div>
+                </a>
+            </li>
+            <li class="country-item">
+                <a href="/gb/" class="country-link">
+                    <div class="festive-border"></div>
+                    <img src="https://flagcdn.com/24x18/gb.png" alt="UK flag" class="country-flag">
+                    <div>
+                        <span>United Kingdom</span>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
+</body>
+</html>
+
 
