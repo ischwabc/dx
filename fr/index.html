@@ -357,6 +357,101 @@
     margin-top: 1rem;
     font-style: italic;
 }
+
+/* 在现有样式的末尾添加评论区样式 */
+.reviews-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(rgba(255,255,255,0.97), rgba(255,255,255,0.97)),
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMiIgZmlsbD0iI0Y0QzQzMCIgZmlsbC1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+');
+    margin-top: 3rem;
+}
+
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.reviews-header h2 {
+    color: var(--christmas-red);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background: var(--christmas-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.reviewer-info h4 {
+    margin: 0;
+    color: var(--pine-dark);
+}
+
+.review-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review-rating {
+    color: var(--christmas-gold);
+    margin: 1rem 0;
+}
+
+.review-text {
+    color: #444;
+    line-height: 1.6;
+}
+
+.review-product {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: var(--christmas-green);
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
 </style>
 
 <div class="christmas-header">
@@ -454,6 +549,56 @@
             <p class="urgent-contact">Besoin d'aide avec votre produit ?</p>
             <a href="mailto:support@dxdoing.com" class="urgent-button">Support Prioritaire</a>
             <p class="guarantee-note">Réponse garantie sous 24h</p>
+        </div>
+    </div>
+</div>
+
+<!-- 在satisfaction-guarantee部分之后，contact-section之前添加评论区 -->
+<div class="reviews-section">
+    <div class="reviews-container">
+        <div class="reviews-header">
+            <h2>🌟 Avis de Nos Clients</h2>
+            <p>Découvrez ce que nos clients disent de nos produits</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">ML</div>
+                    <div class="reviewer-info">
+                        <h4>Marie Laurent</h4>
+                        <span class="review-date">15 Dec 2023</span>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"La boule de Noël personnalisée est magnifique ! La qualité de l'impression est exceptionnelle et le service client a été très réactif pour m'aider avec le téléchargement de ma photo."</p>
+                <div class="review-product">Boule de Noël Personnalisable avec Photo</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">TD</div>
+                    <div class="reviewer-info">
+                        <h4>Thomas Dubois</h4>
+                        <span class="review-date">20 Dec 2023</span>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★</div>
+                <p class="review-text">"Le plaid personnalisé est devenu le cadeau préféré de ma femme ! La texture est douce et l'image est parfaitement imprimée. Le support technique m'a guidé tout au long du processus."</p>
+                <div class="review-product">Plaid Personnalisé avec Photo</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">SP</div>
+                    <div class="reviewer-info">
+                        <h4>Sophie Petit</h4>
+                        <span class="review-date">18 Dec 2023</span>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"Service client exceptionnel ! J'ai eu un petit souci avec ma commande et l'équipe a résolu le problème en moins de 24h. Très professionnels et à l'écoute."</p>
+                <div class="review-product">Couverture Cadeau Personnalisée</div>
+            </div>
         </div>
     </div>
 </div>

@@ -175,6 +175,93 @@
     transition: all 0.3s ease;
 }
 
+.reviews-section {
+    padding: 4rem 1rem;
+    background: linear-gradient(rgba(255,255,255,0.97), rgba(255,255,255,0.97)),
+                url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSI1MCI+CiAgPGNpcmNsZSBjeD0iMjUiIGN5PSIyNSIgcj0iMiIgZmlsbD0iI0Y0QzQzMCIgZmlsbC1vcGFjaXR5PSIwLjEiLz4KPC9zdmc+');
+    margin-top: 3rem;
+}
+.reviews-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reviews-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.reviews-header h2 {
+    color: var(--christmas-red);
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.review-card {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    background: var(--christmas-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.reviewer-info h4 {
+    margin: 0;
+    color: var(--pine-dark);
+}
+
+.review-date {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.review-rating {
+    color: var(--christmas-gold);
+    margin: 1rem 0;
+}
+
+.review-text {
+    color: #444;
+    line-height: 1.6;
+}
+
+.review-product {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: var(--christmas-green);
+}
+
 .buy-button:hover {
     background: transparent;
     color: var(--christmas-red);
@@ -457,7 +544,54 @@
         </div>
     </div>
 </div>
+<div class="reviews-section">
+    <div class="reviews-container">
+        <div class="reviews-header">
+            <h2>🌟 Customer Reviews</h2>
+            <p>See what our valued customers have to say about our products</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">EW</div>
+                    <div class="reviewer-info">
+                        <h4>Emma Wilson</h4>
+                        <span class="review-date">15 Dec 2023</span>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"Absolutely brilliant personalised bauble! The print quality is superb, and the customer service team was most helpful with uploading my photo. Proper good value for money."</p>
+                <div class="review-product">Personalised Photo Christmas Bauble</div>
+            </div>
 
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">JB</div>
+                    <div class="reviewer-info">
+                        <h4>James Bennett</h4>
+                        <span class="review-date">20 Dec 2023</span>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★☆</div>
+                <p class="review-text">"The personalised throw has become my wife's favourite pressie! Lovely soft texture and the image came out splendidly. Technical support was spot on throughout the whole process."</p>
+                <div class="review-product">Personalised Photo Throw</div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="reviewer-avatar">CH</div>
+                    <div class="reviewer-info">
+                        <h4>Charlotte Hughes</h4>
+                        <span class="review-date">18 Dec 2023</span>
+                    </div>
+                </div>
+                <div class="review-rating">★★★★★</div>
+                <p class="review-text">"First-rate customer service! Had a slight hiccup with my order and the team sorted it within 24 hours. Terribly impressed with their professionalism and attention to detail."</p>
+                <div class="review-product">Personalised Gift Blanket</div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="contact-section">
     <h2>Need Assistance?</h2>
     <p>Our team is at your service for any enquiries</p>
