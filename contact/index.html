@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact DXDOING - Need Help</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fffaf0 0%, #fff8ee 100%);
+    margin: 0;
+    padding: 0;
+    color: #3a3a3a;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header {
+    position: relative;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #3a3a3a;
+    margin-bottom: 40px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.accent-line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #d4af37, #f5e7b5);
+    margin: 30px auto;
+    border-radius: 2px;
+}
+
+.intro-text {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #5a5a5a;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+.contact-options {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 40px auto;
+    max-width: 500px;
+}
+
+.contact-option {
+    display: flex;
+    align-items: center;
+    padding: 25px 30px;
+    background: white;
+    border-radius: 12px;
+    color: #3a3a3a;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(240, 240, 240, 0.8);
+    transition: all 0.4s ease;
+    background: linear-gradient(135deg, #ffffff 0%, #fcfcfc 100%);
+}
+
+.contact-option:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(212, 175, 55, 0.15);
+    border-color: rgba(212, 175, 55, 0.3);
+    color: #d4af37;
+}
+
+.contact-option i {
+    margin-right: 20px;
+    color: #d4af37;
+    font-size: 24px;
+    transition: all 0.3s ease;
+}
+
+.contact-option:hover i {
+    transform: scale(1.1);
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 40px;
+    color: #5a5a5a;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.back-link:hover {
+    color: #d4af37;
+}
+
+.back-link i {
+    margin-right: 8px;
+}
+
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(240, 240, 240, 0.8);
+}
+
+.language-btn {
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    color: #5a5a5a;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.language-btn:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #d4af37;
+}
+
+.language-btn.active {
+    font-weight: 500;
+    background: linear-gradient(135deg, #d4af37 0%, #e6c670 100%);
+    color: white;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+.decoration {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.decoration.top-left {
+    top: -100px;
+    left: -100px;
+}
+
+.decoration.bottom-right {
+    bottom: -100px;
+    right: -100px;
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        padding: 40px 20px;
+    }
+    
+    .page-title {
+        font-size: 28px;
+    }
+    
+    .contact-option {
+        padding: 20px 25px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 30px 15px;
+    }
+    
+    .page-title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .intro-text {
+        font-size: 16px;
+        padding: 0 15px;
+        margin-bottom: 35px;
+    }
+    
+    .contact-options {
+        padding: 0 10px;
+    }
+
+    .contact-option {
+        padding: 18px 20px;
+    }
+    
+    .language-selector {
+        position: relative;
+        top: 0;
+        right: 0;
+        justify-content: center;
+        margin-bottom: 30px;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .logo {
+        font-size: 32px;
+    }
+}
+</style>
+
+<div class="container">
+    <div class="language-selector">
+        <button class="language-btn" onclick="changeLanguage('en')" data-lang="en">EN</button>
+        <button class="language-btn" onclick="changeLanguage('es')" data-lang="es">ES</button>
+        <button class="language-btn" onclick="changeLanguage('de')" data-lang="de">DE</button>
+        <button class="language-btn" onclick="changeLanguage('fr')" data-lang="fr">FR</button>
+        <button class="language-btn" onclick="changeLanguage('it')" data-lang="it">IT</button>
+    </div>
+
+    <div class="decoration top-left"></div>
+    <div class="decoration bottom-right"></div>
+
+    <div class="header">
+        <div class="logo">DXDOING</div>
+    </div>
+
+    <h1 class="page-title" data-translate="contact-title">How Can We Help You?</h1>
+
+    <div class="intro-text">
+        <span data-translate="contact-intro">We're here to assist you with any questions or concerns you may have. Please choose one of the contact methods below to reach our customer support team.</span>
+    </div>
+
+    <div class="accent-line"></div>
+
+    <div class="contact-options">
+        <a href="https://wa.me/your_number" class="contact-option" id="whatsapp-link">
+            <i class="fab fa-whatsapp"></i>
+            <span data-translate="whatsapp-text">Contact via WhatsApp</span>
+        </a>
+        <a href="mailto:globaldxdoing@gmail.com?subject=Need%20help%20regarding" class="contact-option">
+            <i class="far fa-envelope"></i>
+            <span data-translate="email-text">Send Email</span>
+        </a>
+    </div>
+
+    <a href="/" class="back-link">
+        <i class="fas fa-arrow-left"></i>
+        <span data-translate="back-to-home">Back to Home</span>
+    </a>
+</div>
+
+<script>
+const translations = {
+    en: {
+        'contact-title': 'How Can We Help You?',
+        'contact-intro': 'We\'re here to assist you with any questions or concerns you may have. Please choose one of the contact methods below to reach our customer support team.',
+        'whatsapp-text': 'Contact via WhatsApp',
+        'email-text': 'Send Email',
+        'back-to-home': 'Back to Home'
+    },
+    es: {
+        'contact-title': '¿Cómo Podemos Ayudarte?',
+        'contact-intro': 'Estamos aquí para ayudarte con cualquier pregunta o inquietud que puedas tener. Por favor, elige uno de los métodos de contacto a continuación para comunicarte con nuestro equipo de atención al cliente.',
+        'whatsapp-text': 'Contactar por WhatsApp',
+        'email-text': 'Enviar Correo Electrónico',
+        'back-to-home': 'Volver al Inicio'
+    },
+    de: {
+        'contact-title': 'Wie Können Wir Ihnen Helfen?',
+        'contact-intro': 'Wir sind hier, um Ihnen bei Fragen oder Anliegen zu helfen. Bitte wählen Sie eine der folgenden Kontaktmethoden, um unser Kundendienstteam zu erreichen.',
+        'whatsapp-text': 'Kontakt über WhatsApp',
+        'email-text': 'E-Mail Senden',
+        'back-to-home': 'Zurück zur Startseite'
+    },
+    fr: {
+        'contact-title': 'Comment Pouvons-Nous Vous Aider?',
+        'contact-intro': 'Nous sommes là pour vous aider avec toutes vos questions ou préoccupations. Veuillez choisir l\'une des méthodes de contact ci-dessous pour joindre notre équipe d\'assistance.',
+        'whatsapp-text': 'Contacter via WhatsApp',
+        'email-text': 'Envoyer un Email',
+        'back-to-home': 'Retour à l\'Accueil'
+    },
+    it: {
+        'contact-title': 'Come Possiamo Aiutarti?',
+        'contact-intro': 'Siamo qui per assisterti con qualsiasi domanda o dubbio tu possa avere. Scegli uno dei metodi di contatto qui sotto per raggiungere il nostro team di assistenza clienti.',
+        'whatsapp-text': 'Contatta via WhatsApp',
+        'email-text': 'Invia Email',
+        'back-to-home': 'Torna alla Home'
+    }
+};
+
+function changeLanguage(lang) {
+    document.querySelectorAll('[data-translate]').forEach(element => {
+        const key = element.getAttribute('data-translate');
+        if (translations[lang][key]) {
+            element.textContent = translations[lang][key];
+        }
+    });
+    
+    document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+    });
+    
+    // 将选择的语言保存到 localStorage
+    localStorage.setItem('dxdoing_language', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 更新WhatsApp链接
+    // const whatsappNumber = "your_whatsapp_number"; // 请替换为您的WhatsApp号码
+    // document.getElementById('whatsapp-link').href = `https://wa.me/${whatsappNumber}`;
+    
+    // 首先检查 localStorage 中是否有已保存的语言选择
+    const savedLang = localStorage.getItem('dxdoing_language');
+    
+    // 如果有已保存的语言，使用它；否则使用浏览器语言
+    if (savedLang) {
+        changeLanguage(savedLang);
+    } else {
+        const userLang = navigator.language.split('-')[0];
+        const supportedLangs = ['en', 'es', 'de', 'fr', 'it'];
+        const defaultLang = supportedLangs.includes(userLang) ? userLang : 'en';
+        changeLanguage(defaultLang);
+    }
+});
+</script>
+</body>
+</html>
+

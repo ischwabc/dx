@@ -1,0 +1,173 @@
+/*
+type your custom css here
+在本文件键入您的自定义CSS
+升级主题文件时请注意保护本文件，防止意外覆盖。
+*/
+
+/* 圣诞节主题样式 */
+.christmas-header {
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), 
+                url('/images/christmas-bg.png');
+    margin-bottom: 2rem;
+}
+
+.christmas-header h1 {
+    color: #c41e3a;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: #2c3e50;
+    font-size: 1.2rem;
+}
+
+.promo-banner {
+    background: #c41e3a;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+}
+
+.highlight {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    position: relative;
+    padding: 1rem;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.bestseller, .new-arrival {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.bestseller {
+    background: #ffd700;
+}
+
+.new-arrival {
+    background: #28a745;
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.price-section {
+    margin: 1rem 0;
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.discount {
+    color: #c41e3a;
+    margin-left: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.buy-button, .coupon-button {
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+}
+
+.buy-button {
+    background: #c41e3a;
+    color: white;
+}
+
+.coupon-button {
+    background: #f8f9fa;
+    color: #2c3e50;
+    border: 1px solid #dee2e6;
+}
+
+.trust-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 3rem 1rem;
+    background: #f8f9fa;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.trust-item .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: white;
+}
+
+.contact-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #2c3e50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+}
